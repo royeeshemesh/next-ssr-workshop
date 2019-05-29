@@ -36,7 +36,11 @@ app.get('*', async (req, res) => {
 
   const reduxStore = initializeStore({}, axiosInstance);
 
-  const allData = matchRoutes(Routes, req.path).map(async ({route})=>(route.component.getData && typeof route.component.getData === 'function') ? route.component.getData(reduxStore) : Promise.resolve());
+  const allData = matchRoutes(Routes, req.path).map(async routeMatch =>{
+    const {route, match} = routeMatch;
+    return (route.component.getData && typeof route.component.getData === 'function') ? route.component.getData(reduxStore, match.params) : Promise.resolve()
+  });
+
   await Promise.all(allData);
 
   console.info('done all');
@@ -53,6 +57,9 @@ app.get('*', async (req, res) => {
 <html>
 <body>
     <div id="root">${renderedApp}</div>
+    <script>
+      window.INITIAL_STATE = ${JSON.stringify(reduxStore.getState())};
+    </script>
     <script src="/client-bundle.js"></script>
 </body>
 </html>    

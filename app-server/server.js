@@ -1,5 +1,7 @@
 const express = require('express');
 const proxy = require('http-proxy-middleware');
+const React = require('react');
+const {renderToString} = require('react-dom/server');
 
 // create express app
 const app = express();
@@ -15,11 +17,17 @@ app.use(proxy(['/api'],{
 
 // listen to root request
 app.get('*', (req, res) => {
+  const SampleApp = () => {
+    return (
+      <div>This is sample app rendered on server</div>
+    )
+  };
+  const renderedApp = renderToString(<SampleApp/>);
+
   res.send(`
 <html>
 <body>
-    <div id="root"></div>
-    <script src="client-bundle.js"></script>
+    <div id="root">${renderedApp}</div>
 </body>
 </html>    
     `);

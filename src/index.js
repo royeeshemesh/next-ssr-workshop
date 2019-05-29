@@ -4,9 +4,14 @@ import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import {initializeStore} from './store';
 import App from './App';
+import axios from 'axios';
 
-const reduxStore = initializeStore();
+const axiosInstance = axios.create({
+  baseURL: '/',
+  withCredentials: true
+});
 
+const reduxStore = initializeStore({}, axiosInstance);
 
 ReactDOM.hydrate(
   <Provider store={reduxStore}>

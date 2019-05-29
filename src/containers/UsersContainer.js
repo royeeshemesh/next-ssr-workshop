@@ -8,8 +8,13 @@ const mapStateToProps = ({users}) => {
 
 const connectedUsers = connect(mapStateToProps, {fetchUsers, selectUser})(Users);
 
-connectedUsers.getData = store => {
-  return store.dispatch(fetchUsers());
+connectedUsers.getData = (store, params) => {
+  const getAllData = [];
+  getAllData.push(store.dispatch(fetchUsers()));
+  if (params && params.id) {
+    getAllData.push(store.dispatch(selectUser(params.id)));
+  }
+  return Promise.all(getAllData);
 };
 
 export default connectedUsers

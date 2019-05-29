@@ -11,7 +11,7 @@ const axiosInstance = axios.create({
   withCredentials: true
 });
 
-const reduxStore = initializeStore({}, axiosInstance);
+const reduxStore = initializeStore(window.INITIAL_STATE, axiosInstance);
 
 ReactDOM.hydrate(
   <Provider store={reduxStore}>

@@ -12,6 +12,8 @@ import {initializeStore} from '../src/store';
 import App from '../src/App';
 import Routes from '../src/Routes';
 
+import axios from 'axios';
+
 // create express app
 const app = express();
 
@@ -26,9 +28,15 @@ app.use(proxy(['/api'],{
 
 // listen to root request
 app.get('*', async (req, res) => {
-  const reduxStore = initializeStore();
+  const axiosInstance = axios.create({
+    baseURL: 'http://127.0.0.1:8888/',
+    withCredentials: true,
+    headers: {...req.headers }
+  });
 
-  const allData = matchRoutes(Routes, req.path).map(async ({route})=>(route.component.getData && typeof route.component.getData === 'function') ? route.component.getData() : Promise.resolve());
+  const reduxStore = initializeStore({}, axiosInstance);
+
+  const allData = matchRoutes(Routes, req.path).map(async ({route})=>(route.component.getData && typeof route.component.getData === 'function') ? route.component.getData(reduxStore) : Promise.resolve());
   await Promise.all(allData);
 
   console.info('done all');

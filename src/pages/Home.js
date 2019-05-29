@@ -14,14 +14,4 @@ const Home = () => {
   );
 };
 
-Home.getData = () => {
-  console.info('HOME');
-  return new Promise(resolve => {
-    setTimeout(function() {
-      console.info('done');
-      resolve();
-    }, 5000);
-  });
-};
-
 export default Home;

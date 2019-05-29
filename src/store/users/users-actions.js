@@ -9,12 +9,12 @@ export const actionTypes = {
   FETCH_SELECTED_USER_FAILED: 'fetchSelectedUserFailed',
 };
 
-export const fetchUsers = () => async dispatch => {
+export const fetchUsers = () => async (dispatch, getState, api) => {
   dispatch({
     type: actionTypes.FETCH_USERS,
   });
 
-  const result = await axios.get('/api/users');
+  const result = await api.get('/api/users');
 
   dispatch({
     type: actionTypes.FETCH_USERS_SUCCESS,

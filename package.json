@@ -4,6 +4,7 @@
   "proxy": "http://localhost:8888",
   "scripts": {
     "build-client": "webpack --config webpack.client.js --watch",
+    "build-server": "webpack --config webpack.server.js --watch",
     "server": "nodemon --watch app-server app-server/server.js"
   },
   "eslintConfig": {
@@ -28,6 +29,7 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-redux": "^7.0.3",
+    "react-router-config": "^5.0.0",
     "react-router-dom": "^5.0.0",
     "react-scripts": "3.0.1",
     "redux": "^4.0.1",

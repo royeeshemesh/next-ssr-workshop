@@ -1,8 +1,9 @@
 import React from 'react';
 import Routes from './Routes';
 import {NavLink} from "react-router-dom";
+import {renderRoutes} from 'react-router-config';
 
-import './App.css';
+// import './App.css';
 
 const App = () => (
   <div className="container">
@@ -33,7 +34,7 @@ const App = () => (
 
     </div>
 
-    <Routes/>
+    {renderRoutes(Routes)}
   </div>
 );
 

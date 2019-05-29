@@ -8,7 +8,7 @@ import App from './App';
 const reduxStore = initializeStore();
 
 
-ReactDOM.render(
+ReactDOM.hydrate(
   <Provider store={reduxStore}>
     <BrowserRouter>
       <App/>

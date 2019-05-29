@@ -1,7 +1,14 @@
 const express = require('express');
 const proxy = require('http-proxy-middleware');
-const React = require('react');
-const {renderToString} = require('react-dom/server');
+
+import React from 'react';
+import {renderToString} from 'react-dom/server';
+import { StaticRouter } from 'react-router-dom';
+import {Provider} from 'react-redux';
+
+import {initializeStore} from '../src/store';
+
+import App from '../src/App';
 
 // create express app
 const app = express();
@@ -16,18 +23,22 @@ app.use(proxy(['/api'],{
 }));
 
 // listen to root request
-app.get('*', (req, res) => {
-  const SampleApp = () => {
-    return (
-      <div>This is sample app rendered on server</div>
-    )
-  };
-  const renderedApp = renderToString(<SampleApp/>);
+app.get('*', async (req, res) => {
+  const reduxStore = initializeStore();
+
+  const renderedApp = renderToString(
+    <Provider store={reduxStore}>
+      <StaticRouter location={req.path} context={{}}>
+        <App/>
+      </StaticRouter>
+    </Provider>
+  );
 
   res.send(`
 <html>
 <body>
     <div id="root">${renderedApp}</div>
+    <script src="/client-bundle.js"></script>
 </body>
 </html>    
     `);

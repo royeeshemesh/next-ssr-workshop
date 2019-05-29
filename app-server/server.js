@@ -4,11 +4,13 @@ const proxy = require('http-proxy-middleware');
 import React from 'react';
 import {renderToString} from 'react-dom/server';
 import { StaticRouter } from 'react-router-dom';
+import { matchRoutes } from 'react-router-config';
 import {Provider} from 'react-redux';
 
 import {initializeStore} from '../src/store';
 
 import App from '../src/App';
+import Routes from '../src/Routes';
 
 // create express app
 const app = express();
@@ -25,6 +27,11 @@ app.use(proxy(['/api'],{
 // listen to root request
 app.get('*', async (req, res) => {
   const reduxStore = initializeStore();
+
+  const allData = matchRoutes(Routes, req.path).map(async ({route})=>(route.component.getData && typeof route.component.getData === 'function') ? route.component.getData() : Promise.resolve());
+  await Promise.all(allData);
+
+  console.info('done all');
 
   const renderedApp = renderToString(
     <Provider store={reduxStore}>

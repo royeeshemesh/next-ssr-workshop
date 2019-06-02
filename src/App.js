@@ -2,7 +2,7 @@ import React from 'react';
 import Routes from './Routes';
 import {NavLink} from "react-router-dom";
 
-import './App.css';
+// import './App.css';
 
 const App = () => (
   <div className="container">

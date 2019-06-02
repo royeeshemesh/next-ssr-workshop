@@ -6,10 +6,16 @@ import Link from 'next/link';
 
 
 class MyApp extends App {
+  constructor(props) {
+    super(props);
+
+    // create redux store
+    this.reduxStore = initializeStore();
+    console.info('creating redux store');
+  }
+
   render() {
     const {Component, pageProps} = this.props;
-
-    const reduxStore = initializeStore();
 
     return (
       <Container>
@@ -29,7 +35,7 @@ class MyApp extends App {
 
           </div>
 
-          <Provider store={reduxStore}>
+          <Provider store={this.reduxStore}>
             <Component {...pageProps} />
           </Provider>
         </div>

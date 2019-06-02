@@ -10,6 +10,24 @@ const PostsList = ({posts}) => {
 
   return (
     <ul className="posts-list">
+      {/*language=CSS*/}
+      <style jsx>{`
+        .posts-list {
+          margin: 0;
+          padding: 0;
+          list-style: none;
+        }
+
+        .posts-list li {
+          padding: 20px;
+          background-color: #fafafa;
+          border-radius: 10px;
+          margin-bottom: 15px;
+          border: 1px solid lightgray;
+        }
+
+      `}</style>
+
       {posts.map(post => (
         <li key={post.id}>
           <label>{post.id} - <strong>{post.title}</strong></label>

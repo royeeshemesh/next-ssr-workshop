@@ -26,6 +26,23 @@ class Users extends Component {
 
     return (
       <div className="users">
+        {/*language=CSS*/}
+        <style jsx>{`
+            .users {
+              display: flex;
+            }
+
+            .user-details-wrapper {
+              margin-left: 15px;
+              padding-left: 15px;
+              border-left: 1px solid lightgray;
+            }
+
+            .user-details-wrapper {
+              flex: 1;
+            }
+        `}</style>
+
         <UsersList users={items} isFetching={isFetchingItems} isFetchingSelected={isFetchingSelected} selected={selected} selectUser={this.props.selectUser}/>
 
         {(items && items.length) && <div className="user-details-wrapper">

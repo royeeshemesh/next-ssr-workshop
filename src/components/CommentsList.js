@@ -10,6 +10,22 @@ const CommentsList = ({comments}) => {
 
   return (
     <ul className="comments-list">
+      {/*language=CSS*/}
+      <style jsx>{`
+        .comments-list {
+          margin: 0;
+          padding: 0;
+          list-style: none;
+        }
+
+        .comments-list li {
+          padding: 20px;
+          background-color: #fafafa;
+          border-radius: 10px;
+          margin-bottom: 15px;
+          border: 1px solid lightgray;
+        }
+      `}</style>
       {comments.map(comment => (
         <li key={comment.id}>
           <label>{comment.id} - <strong>{comment.name}</strong></label>

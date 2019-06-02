@@ -3,6 +3,15 @@ import React from 'react';
 const Home = () => {
   return (
     <div className="home-intro">
+      {/*language=CSS*/}
+      <style>{`
+        .home-intro {
+          background-color: #fafafa;
+          border-radius: 15px;
+          padding: 30px 50px;
+          border: 1px solid lightgray;
+        }
+      `}</style>
       <h1>
         Welcome, please choose a section to begin exploring
       </h1>

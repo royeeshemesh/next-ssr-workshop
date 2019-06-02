@@ -20,6 +20,61 @@ const UsersList = ({users, isFetching, selected, selectUser, isFetchingSelected}
 
   return (
     <div>
+      {/*language=CSS*/}
+      <style jsx>{`
+          .users-list-wrapper {
+            position: relative;
+          }
+
+          .loader {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: white;
+            opacity: 0.5;
+            top: 0;
+            left: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+
+          .users-list {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            min-width: 300px;
+          }
+
+          .users-list li {
+            padding: 15px 20px 15px 0;
+            cursor: pointer;
+          }
+
+          .users-list li a {
+            text-decoration: none;
+            color: #555555;
+          }
+
+          .users-list li:hover {
+            background-color: #f7f7f7;
+          }
+
+          .users-list li:active {
+            background-color: #e8e8e8;
+          }
+
+          .users-list li.selected {
+            font-weight: bold;
+            background-color: #e8e8e8;
+            padding-left: 20px;
+          }
+
+          .users-list li:not(:first-child) {
+            border-top: 1px solid lightgray;
+          }
+      `}</style>
+
       <h1>Users</h1>
       <hr/>
       <div className="users-list-wrapper">

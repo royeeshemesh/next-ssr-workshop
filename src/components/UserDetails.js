@@ -16,6 +16,27 @@ const UserDetails = ({user, isFetching, posts, comments}) => {
 
   return (
     <div>
+      {/*language=CSS*/}
+      <style jsx>{`
+          .user-details-table {
+            width: 100%;
+            table-layout: fixed;
+          }
+
+          .user-details-table td {
+            padding: 10px 20px 10px 0;
+            font-size: 18px;
+          }
+
+          .user-details-table td:nth-child(3) {
+            padding-left: 15px;
+          }
+
+          .user-details-table td:nth-child(even) {
+            font-weight: bold;
+          }
+      `}</style>
+
       <table className="user-details-table" cellSpacing="0" cellPadding="0">
         <tbody>
         <tr>

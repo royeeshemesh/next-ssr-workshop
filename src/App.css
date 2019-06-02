@@ -51,34 +51,6 @@ body {
   border-right: 1px solid lightgray;
 }
 
-.posts-list {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.posts-list li {
-  padding: 20px;
-  background-color: #fafafa;
-  border-radius: 10px;
-  margin-bottom: 15px;
-  border: 1px solid lightgray;
-}
-
-.comments-list {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.comments-list li {
-  padding: 20px;
-  background-color: #fafafa;
-  border-radius: 10px;
-  margin-bottom: 15px;
-  border: 1px solid lightgray;
-}
-
 .search-box {
   display: block;
   padding: 10px 5px;

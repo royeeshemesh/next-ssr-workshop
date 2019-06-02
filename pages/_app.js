@@ -65,6 +65,56 @@ class MyApp extends App {
 
     return (
       <Container>
+        {/*language=CSS*/}
+        <style global jsx>{`
+
+          html,
+          body {
+            padding: 0;
+            margin: 0;
+          }
+
+          .container {
+            max-width: 1400px;
+            margin: 0 auto;
+          }
+
+          .brand {
+            font-size: 24px;
+            font-weight: bold;
+          }
+
+          .navigation {
+            margin-top: 5px;
+          }
+
+          .navigation a {
+            padding: 10px;
+            border-radius: 5px;
+            display: inline-block;
+            font-size: 18px;
+            text-decoration: none;
+          }
+
+          .navigation a:hover {
+            background-color: #f4f4f4;
+          }
+
+          .flex {
+            display: flex;
+          }
+
+          .flex-any {
+            flex: 1;
+          }
+
+          .flex-any:first-child {
+            margin-right: 15px;
+            padding-right: 15px;
+            border-right: 1px solid lightgray;
+          }
+
+        `}</style>
         <div className="container">
 
           <div className="navigation">

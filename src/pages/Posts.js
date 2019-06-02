@@ -1,7 +1,6 @@
 import React, {useEffect} from 'react';
 import PropTypes from 'prop-types';
 
-// import './Posts.css';
 import PostsList from '../components/PostsList';
 
 const Posts = props => {

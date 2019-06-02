@@ -5,8 +5,27 @@ import {initializeStore} from '../src/store';
 import Link from 'next/link';
 
 class MyApp extends App {
+  static async getInitialProps(appContext) {
+    console.info(appContext);
+
+    const {Component} = appContext;
+    let pageProps = {};
+    if (Component.getInitialProps) {
+      pageProps = await Component.getInitialProps(appContext)
+    }
+
+    console.info(pageProps);
+
+    return {
+      ...pageProps,
+      royee: 'shemesh'
+    }
+  }
+
   constructor(props) {
     super(props);
+
+    console.info(this.props.royee);
 
     // create redux store
     this.reduxStore = initializeStore();

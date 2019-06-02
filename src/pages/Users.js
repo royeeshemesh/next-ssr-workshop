@@ -4,8 +4,6 @@ import PropTypes from 'prop-types';
 import UsersList from '../components/UsersList';
 import UserDetails from '../components/UserDetails';
 
-// import './Users.css';
-
 class Users extends Component {
   async componentDidMount() {
     if (!this.props.items) {

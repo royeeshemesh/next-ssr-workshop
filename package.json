@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "proxy": "http://localhost:8888",
   "scripts": {
-    "start": "next dev"
+    "start": "nodemon --watch app-server node app-server/server.js"
   },
   "eslintConfig": {
     "extends": "react-app"

@@ -6,10 +6,9 @@ const mapStateToProps = ({posts}) => posts;
 
 const connectedPosts = connect(mapStateToProps, {fetchPosts})(Posts);
 
-connectedPosts.getInitialProps = async appContext => {
-  return {
-    posts: [1,2,3,4,5]
-  }
+connectedPosts.getInitialProps = async ctx => {
+  await ctx.reduxStore.dispatch(fetchPosts());
+  return {};
 };
 
 export default connectedPosts;

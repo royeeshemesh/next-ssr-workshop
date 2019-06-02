@@ -4,7 +4,7 @@ const Home = () => {
   return (
     <div className="home-intro">
       <h1>
-        Welcome, please chose a section to begin exploring
+        Welcome, please choose a section to begin exploring
       </h1>
       <hr/>
       <p>

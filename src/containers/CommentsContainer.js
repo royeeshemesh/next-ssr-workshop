@@ -7,7 +7,10 @@ const mapStateToProps = ({comments}) => comments;
 const connectedComments = connect(mapStateToProps, {fetchComments})(Comments);
 
 connectedComments.getInitialProps = async ctx => {
-  await ctx.reduxStore.dispatch(fetchComments());
+  const {comments} = ctx.reduxStore.getState();
+  if (!comments.items) {
+    await ctx.reduxStore.dispatch(fetchComments());
+  }
   return {};
 };
 

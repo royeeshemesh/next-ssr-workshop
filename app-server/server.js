@@ -18,6 +18,10 @@ nextApp.prepare()
       xfwd: true,
     }));
 
+    app.get('/users/:id?', (req, res) => {
+      nextApp.render(req, res, '/users', { id: req.params.id });
+    });
+
     app.use(handleNextRequests);
 
     // start server

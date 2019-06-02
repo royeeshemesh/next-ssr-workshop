@@ -10,12 +10,6 @@ class Users extends Component {
   async componentDidMount() {
     if (!this.props.items) {
       this.props.fetchUsers();
-
-      const {match: {params: {id: userId}} = {}} = this.props;
-
-      if (userId) {
-        this.props.selectUser(userId)
-      }
     }
 
   }

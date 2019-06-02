@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Link} from 'react-router-dom';
+import Link from 'next/link';
 
 const UsersList = ({users, isFetching, selected, selectUser, isFetchingSelected}) => {
   if (!users) {
@@ -26,7 +26,7 @@ const UsersList = ({users, isFetching, selected, selectUser, isFetchingSelected}
         <ul className="users-list">
           {users.map(user => (
             <li key={user.id} onClick={() => selectUser(user.id)} className={selected && (selected.id === user.id) ? 'selected' : ''}>
-              <Link to={`/users/${user.id}`}>{user.name}</Link>
+              <Link as={`/users/${user.id}`} href="/users"><a>{user.name}</a></Link>
             </li>
           ))}
         </ul>

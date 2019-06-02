@@ -34,7 +34,7 @@ class MyApp extends App {
 
           </div>
 
-          <Provider store={reduxStore}>
+          <Provider store={this.reduxStore}>
             <Component {...pageProps} />
           </Provider>
         </div>

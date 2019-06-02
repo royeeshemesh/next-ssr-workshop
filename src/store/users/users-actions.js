@@ -1,5 +1,3 @@
-import axios from 'axios';
-
 export const actionTypes = {
   FETCH_USERS: 'fetchUsers',
   FETCH_USERS_SUCCESS: 'fetchUsersSuccess',
@@ -22,15 +20,15 @@ export const fetchUsers = () => async dispatch => {
   });
 };
 
-export const selectUser = userId => async dispatch => {
+export const selectUser = userId => async (dispatch, getState, api) => {
   dispatch({
     type: actionTypes.FETCH_SELECTED_USER,
   });
 
   const [{data: user}, {data: posts}, {data: comments}] = await Promise.all([
-    axios.get(`/api/users/${userId}`),
-    axios.get(`/api/users/${userId}/posts/top5`),
-    axios.get(`/api/users/${userId}/comments/top5`),
+    api.get(`/api/users/${userId}`),
+    api.get(`/api/users/${userId}/posts/top5`),
+    api.get(`/api/users/${userId}/comments/top5`),
   ]);
 
   dispatch({

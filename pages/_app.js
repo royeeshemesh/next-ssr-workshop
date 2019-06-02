@@ -1,9 +1,13 @@
 import React from 'react';
 import App, {Container} from 'next/app';
+import {Provider} from "react-redux";
+import {initializeStore} from "../src/store";
 
 class MyApp extends App {
   render() {
     const {Component, pageProps} = this.props;
+
+    const reduxStore = initializeStore();
 
     return (
       <Container>
@@ -11,7 +15,11 @@ class MyApp extends App {
           <span>This is common header</span>
           <hr/>
         </header>
-        <Component {...pageProps} />
+
+        <Provider store={reduxStore}>
+          <Component {...pageProps} />
+        </Provider>
+
       </Container>
     )
   }

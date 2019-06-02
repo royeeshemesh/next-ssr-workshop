@@ -1,11 +1,3 @@
-import React from 'react';
+import Home from "../src/pages/Home";
 
-const Index = () => {
-  return (
-    <div>
-      This is Next.js
-    </div>
-  );
-};
-
-export default Index;
+export default Home;

@@ -53,13 +53,13 @@ class MyApp extends App {
           </div>
 
           <Provider store={this.reduxStore}>
-            <Component {...pageProps}/>
+            <Component {...pageProps} />
           </Provider>
 
         </div>
       </Container>
-    );
+    )
   }
 }
 
-export default MyApp;
+export default MyApp

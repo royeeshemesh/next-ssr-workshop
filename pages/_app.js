@@ -33,7 +33,7 @@ class MyApp extends App {
       <Container>
         <div className="container">
 
-          <header className="navigation">
+          <div className="navigation">
 
             <Link href="/"><a><span className="brand">User explorer</span></a></Link>
 
@@ -45,12 +45,11 @@ class MyApp extends App {
 
             <hr/>
 
-          </header>
+          </div>
 
           <Provider store={this.reduxStore}>
             <Component {...pageProps} />
           </Provider>
-
         </div>
       </Container>
     )

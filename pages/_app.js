@@ -1,6 +1,6 @@
 import React from 'react';
 import App, {Container} from 'next/app';
-import {Provider} from "react-redux";
+import {Provider} from 'react-redux';
 import {initializeStore} from '../src/store';
 import Link from 'next/link';
 

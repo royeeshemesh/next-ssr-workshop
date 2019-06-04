@@ -1,4 +1,6 @@
 const express = require('express');
+const proxy = require('http-proxy-middleware');
+
 const next = require('next');
 
 const dev = process.env.NODE_ENV !== 'production';
@@ -9,6 +11,12 @@ nextApp.prepare()
   .then(() => {
     // create express app
     const app = express();
+
+    app.use(proxy(['/api'],{
+      target: 'http://localhost:8888/',
+      changeOrigin: true,
+      xfwd: true,
+    }));
 
     app.use(handleNextRequests);
 

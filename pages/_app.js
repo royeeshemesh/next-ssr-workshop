@@ -1,44 +1,33 @@
 import React from 'react';
 import App, {Container} from 'next/app';
-import {Provider} from 'react-redux';
-import {initializeStore} from '../src/store';
+import {Provider} from "react-redux";
+import {initializeStore} from "../src/store";
 import Link from 'next/link';
 
 class MyApp extends App {
-  static async getInitialProps(appContext) {
-    const appProps = {
-      royee: 'shemesh'
-    };
 
-    const {Component} = appContext;
+  static async getInitialProps({ Component, ctx }) {
+    ctx.reduxStore = initializeStore();
 
+    let pageProps = {};
     if (Component.getInitialProps) {
-      // Component can be one of home/users/posts/comments
-      const componentProps = await Component.getInitialProps(appContext);
-
-      Object.assign(appProps, componentProps);
+      pageProps = await Component.getInitialProps(ctx)
     }
 
-    return appProps;
+    return {
+      pageProps,
+      reduxInitialState: ctx.reduxStore.getState()
+    }
   }
 
   constructor(props) {
     super(props);
 
-    console.info('MyApp constructor', props);
-
-    this.reduxStore = initializeStore();
-    console.info('generating new redux store');
-  }
-
-  componentDidMount() {
-    console.info('MyApp did mount');
+    this.reduxStore = initializeStore(props.reduxInitialState);
   }
 
   render() {
     const {Component, pageProps} = this.props;
-
-    console.info('MyApp render');
 
     return (
       <Container>
@@ -57,6 +46,8 @@ class MyApp extends App {
           </Provider>
 
         </div>
+
+
       </Container>
     );
   }

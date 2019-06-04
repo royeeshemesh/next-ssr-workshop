@@ -6,62 +6,60 @@ import Link from 'next/link';
 
 class MyApp extends App {
   static async getInitialProps(appContext) {
-    console.info(appContext);
+    const appProps = {
+      royee: 'shemesh'
+    };
 
     const {Component} = appContext;
-    let pageProps = {};
+
     if (Component.getInitialProps) {
-      pageProps = await Component.getInitialProps(appContext)
+      // Component can be one of home/users/posts/comments
+      const componentProps = await Component.getInitialProps(appContext);
+
+      Object.assign(appProps, componentProps);
     }
 
-    console.info(pageProps);
-
-    return {
-      ...pageProps,
-      royee: 'shemesh'
-    }
+    return appProps;
   }
 
   constructor(props) {
     super(props);
 
-    console.info(this.props.royee);
+    console.info('MyApp constructor', props);
 
-    // create redux store
     this.reduxStore = initializeStore();
-    console.info('creating redux store');
+    console.info('generating new redux store');
+  }
+
+  componentDidMount() {
+    console.info('MyApp did mount');
   }
 
   render() {
     const {Component, pageProps} = this.props;
 
+    console.info('MyApp render');
+
     return (
       <Container>
         <div className="container">
 
-          <div className="navigation">
-
+          <header className="navigation">
             <Link href="/"><a><span className="brand">User explorer</span></a></Link>
-
             <Link href="/users"><a>Users</a></Link>
-
             <Link href="/posts"><a>Posts</a></Link>
-
             <Link href="/comments"><a>Comments</a></Link>
-
             <hr/>
-
-          </div>
+          </header>
 
           <Provider store={this.reduxStore}>
-            <Component {...pageProps} />
+            <Component {...pageProps}/>
           </Provider>
+
         </div>
-
-
       </Container>
-    )
+    );
   }
 }
 
-export default MyApp
+export default MyApp;

@@ -44,27 +44,22 @@ class MyApp extends App {
       <Container>
         <div className="container">
 
-          <div className="navigation">
-
+          <header className="navigation">
             <Link href="/"><a><span className="brand">User explorer</span></a></Link>
-
             <Link href="/users"><a>Users</a></Link>
-
             <Link href="/posts"><a>Posts</a></Link>
-
             <Link href="/comments"><a>Comments</a></Link>
-
             <hr/>
-
-          </div>
+          </header>
 
           <Provider store={this.reduxStore}>
-            <Component {...pageProps} />
+            <Component {...pageProps}/>
           </Provider>
+
         </div>
       </Container>
-    )
+    );
   }
 }
 
-export default MyApp
+export default MyApp;

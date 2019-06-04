@@ -5,7 +5,7 @@ import UsersReducer from './users/users-reducer';
 import CommentsReducer from './comments/comments-reducer';
 import PostsReducer from './posts/posts-reducer';
 
-export function initializeStore(initialState = {}, axiosInstance) {
+export function initializeStore(initialState = {}) {
   const reducers = {
     users: UsersReducer,
     comments: CommentsReducer,
@@ -16,7 +16,7 @@ export function initializeStore(initialState = {}, axiosInstance) {
     combineReducers(reducers),
     initialState,
     applyMiddleware(
-      thunkMiddleware.withExtraArgument(axiosInstance)
+      thunkMiddleware
     )
   );
 }

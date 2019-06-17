@@ -15,19 +15,22 @@ Run a local `API` server for demo purposes:
 ```bash 
 $ node api/index.js
 $
-$ // run pm2 in the background
+$ # alternoivaly run pm2 in the background
 $ pm2 start api/index.js
 ```
 
 ---
 
-### Workshop appendixes 
+## Workshop appendixes 
 
-#### 1.SSR .01 - setup
+### 1.SSR .01 - setup
+package.json
 ```bash
 $ npm i http-proxy-middleware -S
 $ npm i @babel/core @babel/plugin-transform-runtime @babel/preset-env @babel/preset-react @babel/runtime babel-loader css-loader nodemon npm-run-all webpack webpack-cli webpack-node-externals -D
 ```  
+
+--- 
 
 .babelrc
 ```json
@@ -53,6 +56,8 @@ $ npm i @babel/core @babel/plugin-transform-runtime @babel/preset-env @babel/pre
   ]
 }
 ```
+
+---
 
 webpack.client.js
 ```javascript
@@ -89,7 +94,8 @@ const path = require('path');
 }; 
 ```
 
-#### 1.SSR .02 - ssr
+
+### 1.SSR .02 - ssr
 webpack.server.js
 ```javascript
 const path = require('path');
@@ -121,7 +127,9 @@ const nodeExternals = require('webpack-node-externals');
 };
 ```
 
-#### 1.SSR .04 - isomorphic
+
+## 1.SSR .04 - isomorphic
+server.js
 ```css
     html,
     body {
@@ -299,7 +307,7 @@ const nodeExternals = require('webpack-node-externals');
 
 ```
 
-### Workshop storyline 
+## Workshop storyline 
 This workshop is divided into small branches built one on top of each other where each branch represent the next part of the story.
 You can find the detailed files comparison between all the branches.
  

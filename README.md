@@ -29,7 +29,7 @@ The first is converting a client side React.js application into SSR based.
 
 The second part is converting the same source React.js application to a Next.js SSR based.
 
-*. SSR
+* SSR
    1. 01 - setup
    2. 02 - ssr
    3. 03 - data

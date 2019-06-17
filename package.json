@@ -3,9 +3,8 @@
   "version": "0.1.0",
   "proxy": "http://localhost:8888",
   "scripts": {
-    "start": "run-p dev:*",
-    "dev:server": "nodemon --watch app-server app-server/server.js",
-    "dev:build-client": "webpack --config webpack.client.js --watch"
+    "build-client": "webpack --config webpack.client.js --watch",
+    "server": "nodemon --watch app-server app-server/server.js"
   },
   "eslintConfig": {
     "extends": "react-app"

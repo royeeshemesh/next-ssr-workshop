@@ -17,5 +17,8 @@ $ node api/index.js
 
 ### Workshop storyline 
 This workshop is divided into small branches built one on top of each other where each branch represent the next part of the story.
-You can find the detailed files comparison between all the branches (Intuit) [here](https://royeeshemesh.github.io/next-ssr-workshop/).
-You can find the detailed files comparison between all the branches (Public )[here](https://github.intuit.com/pages/rshemesh/next-ssr-workshop/).
+You can find the detailed files comparison between all the branches.
+ 
+[Intuit](https://royeeshemesh.github.io/next-ssr-workshop/)
+
+[Public](https://github.intuit.com/pages/rshemesh/next-ssr-workshop/)

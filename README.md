@@ -29,11 +29,25 @@ The first is converting a client side React.js application into SSR based.
 
 The second part is converting the same source React.js application to a Next.js SSR based.
 
-* SSR
+1. **SSR**
    1. 01 - setup
    2. 02 - ssr
    3. 03 - data
-   4. 04 - isomorphic 
+   4. 04 - isomorphic
+   
+2. **SSR Using Next.js**
+   1. 01 - setup
+   2. 02 - pages
+   3. 03 - all pages
+   4. 04 - all pages with redux
+   5. 05 - application server 
+   6. 06 - client side navigation
+   7. 07 - client redux
+   8. 08 - next page lifecycle
+   9. 09 - client/server redux
+   10.10 - server routes 
+   11.11 - styling
+ 
 
 ## Workshop appendixes 
 

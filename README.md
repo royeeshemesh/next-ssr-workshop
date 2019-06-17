@@ -18,6 +18,12 @@ $
 $ # alternoivaly run pm2 in the background
 $ pm2 start api/index.js
 ```
+Run the local server
+```bash
+$ npm start 
+```
+
+Navigate to [localhost](http://localhost:3000)
 
 ---
 

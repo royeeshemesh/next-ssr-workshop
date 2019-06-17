@@ -21,6 +21,20 @@ $ pm2 start api/index.js
 
 ---
 
+## Workshop TOC
+
+This workshop divided into two parts. 
+
+The first is converting a client side React.js application into SSR based.
+
+The second part is converting the same source React.js application to a Next.js SSR based.
+
+*. SSR
+   1. 01 - setup
+   2. 02 - ssr
+   3. 03 - data
+   4. 04 - isomorphic 
+
 ## Workshop appendixes 
 
 ### 1.SSR .01 - setup

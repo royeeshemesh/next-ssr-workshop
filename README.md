@@ -345,6 +345,6 @@ server.js
 This workshop is divided into small branches built one on top of each other where each branch represent the next part of the story.
 You can find the detailed files comparison between all the branches.
  
-[Intuit](https://royeeshemesh.github.io/next-ssr-workshop/)
+[Intuit](https://github.intuit.com/pages/rshemesh/next-ssr-workshop/)
 
-[Public](https://github.intuit.com/pages/rshemesh/next-ssr-workshop/)
+[Public](https://royeeshemesh.github.io/next-ssr-workshop/)

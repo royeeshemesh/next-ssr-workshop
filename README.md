@@ -55,7 +55,7 @@ The second part is converting the same source React.js application to a Next.js 
    11.11 - styling
  
 
-## Workshop appendixes 
+## Workshop appendices 
 
 ### 1.SSR .01 - setup
 package.json

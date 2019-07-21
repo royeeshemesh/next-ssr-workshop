@@ -61,7 +61,7 @@ The second part is converting the same source React.js application to a Next.js 
 package.json
 ```bash
 $ npm i http-proxy-middleware -S
-$ npm i @babel/core @babel/plugin-transform-runtime @babel/preset-env @babel/preset-react @babel/runtime babel-loader css-loader nodemon npm-run-all webpack webpack-cli webpack-node-externals -D
+$ npm i @babel/core @babel/plugin-transform-runtime @babel/preset-env @babel/preset-react @babel/runtime babel-loader css-loader nodemon npm-run-all webpack webpack-cli webpack-node-externals @babel/plugin-proposal-class-properties -D
 ```  
 
 --- 
